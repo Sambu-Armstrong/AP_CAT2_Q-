@@ -1,4 +1,7 @@
 # AP_CAT2_Q1
+Sambu Armstrong
+168205
+BBIT 2.2C
 
 # Django E-Commerce Project
 
