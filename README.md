@@ -7,7 +7,6 @@ BBIT 2.2C
 
 This project demonstrates a simple e-commerce application with Django, focusing on data relationships between models (Customer and Order).
 
-
 ## Installation
 
 1. Clone the Repository
@@ -15,45 +14,100 @@ This project demonstrates a simple e-commerce application with Django, focusing 
 
 2. **Create a Virtual Environment**
 
+    Run the following on git bash:
+
+    ```sh
     python -m venv .venv
-    source .venv/bin/activate    # on git bash
+    source .venv/Scripts/Activate
+    ```
 
-3. **Apply Migrations**
-    
+3. **Install Django using pip**
+
+    ```sh
+    pip install django
+    ```
+
+4. **Navigate to `myproject` Directory**
+
+    Run on gitbash:
+
+    ```sh
+    cd myproject
+    ```
+
+5. **Apply Migrations**
+
+    Run on gitbash:
+
+    ```sh
     python manage.py migrate
-    
-
+    ```
 
 ## Running the Project
 
 1. **Start the Development Server**
 
-   
+    Run on gitbash:
+
+    ```sh
     python manage.py runserver
-    
+    ```
 
-2. **Access the Project** 
-    Open your browser and navigate to [http://127.0.0.1:8000] , 
+2. **Access the Project**
 
+    Open your browser and navigate to [http://127.0.0.1:8000]
 
+## Creating a Superuser
 
-    **Models**
+1. **Create a Superuser**
 
-## Customer Model
-        Fields:
+    Run on gitbash:
 
-            name (CharField): The name of the customer
-            email (EmailField): The email address of the customer
+    ```sh
+    python manage.py createsuperuser
+    ```
 
-## Order Model
-        Fields:
+    Follow the prompts to set up a username, email, and password for the superuser account.
 
-            order_date (DateTimeField): The date and time when the order was placed
-            total_amount (DecimalField): The total amount of the order
-            customer (ForeignKey): Foreign key to the Customer model
+## Adding Customers and Orders via Admin Interface
 
-In case of any  changes to the models do:
+1. **Access the Admin Interface**
 
-    python manage.py makemigrations  #to create migration
-    python manage.py migrate # to apply the migrations
+    Open your browser and navigate to [http://127.0.0.1:8000/admin]
 
+2. **Log In with Superuser Credentials**
+
+    Use the superuser credentials you created.
+
+3. **Add a New Customer**
+
+    - In the admin dashboard, click on the `Customers` link.
+    - Click on the `Add Customer` button.
+    - Fill in the `Name` and `Email` fields.
+    - Click on the `Save` button.
+
+4. **Add an Order for a Customer**
+
+    - In the admin dashboard, click on the `Orders` link.
+    - Click on the `Add Order` button.
+    - Fill in the `Order Date` and `Total Amount` fields.
+    - In the `Customer` dropdown, select the customer you created earlier.
+    - Click on the `Save` button.
+
+5. **View customers list**
+    navigate to [http://127.0.0.1:8000/] and click on the `view customer` button 
+
+## Models
+
+### Customer Model
+
+- **Fields**:
+    - `name` (CharField): The name of the customer
+    - `email` (EmailField): The email address of the customer
+
+### Order Model
+
+- **Fields**:
+    - `order_date` (DateTimeField): The date and time when the order was placed
+    - `total_amount` (DecimalField): The total amount of the order
+    - `customer` (ForeignKey): Foreign key to the Customer model
